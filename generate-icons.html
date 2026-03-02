@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Generate Icons</title>
+</head>
+
+<body>
+    <h2>zCloudPass Icon Generator</h2>
+    <p>Right-click each icon → "Save image as..." to save to the <code>icons/</code> folder.</p>
+    <div id="icons" style="display:flex; gap:20px; flex-wrap:wrap; padding:20px;"></div>
+    <script>
+        const sizes = [16, 32, 48, 128];
+        const container = document.getElementById('icons');
+
+        sizes.forEach(size => {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+
+            // Background
+            const bgGrad = ctx.createLinearGradient(0, 0, size, size);
+            bgGrad.addColorStop(0, '#0f172a');
+            bgGrad.addColorStop(1, '#1e293b');
+            roundRect(ctx, 0, 0, size, size, size * 0.18, bgGrad);
+
+            const s = size / 128; // scale factor
+            ctx.save();
+            ctx.translate(size / 2, size / 2);
+
+            // Lock body
+            const lockGrad = ctx.createLinearGradient(-24 * s, 0, 24 * s, 34 * s);
+            lockGrad.addColorStop(0, '#60a5fa');
+            lockGrad.addColorStop(1, '#3b82f6');
+
+            ctx.strokeStyle = lockGrad;
+            ctx.lineWidth = 4 * s;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            // Body rect
+            roundRect(ctx, -24 * s, -4 * s, 48 * s, 34 * s, 6 * s, null, lockGrad);
+
+            // Shackle
+            ctx.beginPath();
+            ctx.moveTo(-16 * s, -4 * s);
+            ctx.lineTo(-16 * s, -16 * s);
+            ctx.arc(0, -16 * s, 16 * s, Math.PI, 0, false);
+            ctx.lineTo(16 * s, -4 * s);
+            ctx.stroke();
+
+            // Keyhole circle
+            ctx.fillStyle = lockGrad;
+            ctx.beginPath();
+            ctx.arc(0, 12 * s, 5 * s, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Keyhole line
+            roundRect(ctx, -2 * s, 14 * s, 4 * s, 8 * s, 1 * s, lockGrad);
+
+            ctx.restore();
+
+            // Label
+            const div = document.createElement('div');
+            div.style.textAlign = 'center';
+            div.innerHTML = `<p style="font-family:sans-serif;font-size:13px;margin:4px 0">icon${size}.png</p>`;
+            div.prepend(canvas);
+            canvas.style.border = '1px solid #333';
+            canvas.style.borderRadius = '8px';
+            container.appendChild(div);
+        });
+
+        function roundRect(ctx, x, y, w, h, r, fill, stroke) {
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+            ctx.lineTo(x + w, y + h - r);
+            ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+            ctx.lineTo(x + r, y + h);
+            ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+            ctx.lineTo(x, y + r);
+            ctx.quadraticCurveTo(x, y, x + r, y);
+            ctx.closePath();
+            if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+            if (stroke) { ctx.strokeStyle = stroke; ctx.stroke(); }
+        }
+    </script>
+</body>
+
+</html>
