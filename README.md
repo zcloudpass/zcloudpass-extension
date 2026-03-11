@@ -93,6 +93,13 @@ zcloudpass-extension/
 - Open the popup's DevTools: right-click the popup → **Inspect**
 - Content script console logs appear in the **page's DevTools console**
 
+## ✅ CI / Releases
+
+- `npm test` validates the extension manifest, required assets, and JavaScript syntax
+- GitHub Actions `CI` runs on pushes to `main`/`master` and on pull requests
+- GitHub Actions `Release` runs when you push a tag like `v1.1.0`
+- The release workflow verifies the tag matches `manifest.json` and uploads a packaged `.zip` as the GitHub release asset
+
 ## 📋 Supported Sites
 
 The content script auto-injects on:
