@@ -1,10 +1,10 @@
 # 🔐 zCloudPass Browser Extension
 
-A Chrome/Edge browser extension for **zCloudPass** — automatically capture and autofill passwords from **AUMS Amrita** (and other websites) into your encrypted zCloudPass vault.
+A Chrome/Edge browser extension for **zCloudPass** — automatically capture and autofill passwords from **any website** into your encrypted zCloudPass vault.
 
 ## ✨ Features
 
-- **Auto-detect login forms** on AUMS Amrita pages (`cms.cb.amrita.edu`)
+- **Auto-detect login forms** on all websites
 - **Save credentials** when you log in — a floating banner asks "Save this password?"
 - **Autofill** saved passwords on matching sites with one click
 - **Search & browse** all vault entries from the popup
@@ -37,15 +37,15 @@ A Chrome/Edge browser extension for **zCloudPass** — automatically capture and
 3. (Optional) Under "Advanced", set a custom API URL for local dev
 4. Click **Sign In**
 
-### Auto-Save from AUMS
+### Auto-Save Credentials
 
-1. Navigate to [AUMS Login](https://aumscb.amrita.edu/cas/login)
-2. Enter your roll number and password
+1. Navigate to any website's login page
+2. Enter your username/email and password
 3. Submit the form
-4. A **floating banner** will appear at the top: *"Save password for CB.EN.U4XXX?"*
+4. A **floating banner** will appear at the top: *"Save password for user@example.com?"*
 5. Click **Save** — credentials are encrypted and stored in your vault!
 
-### Autofill on AUMS
+### Autofill on any site
 
 1. When you visit a login page with a saved password, a **blue autofill banner** appears
 2. Select the account to fill
@@ -70,7 +70,7 @@ A Chrome/Edge browser extension for **zCloudPass** — automatically capture and
 zcloudpass-extension/
 ├── manifest.json       # Chrome Manifest V3 config
 ├── background.js       # Service worker (API calls, crypto, message routing)
-├── content.js          # Injected into AUMS pages (form detection, save/autofill banners)
+├── content.js          # Injected into pages (form detection, save/autofill banners)
 ├── content.css         # Styles for injected banners
 ├── popup.html          # Extension popup UI
 ├── popup.css           # Popup styles (dark theme)
@@ -96,7 +96,6 @@ zcloudpass-extension/
 ## 📋 Supported Sites
 
 The content script auto-injects on:
-- `https://aumscb.amrita.edu/*`
-- `https://*.amrita.edu/*`
+- `<all_urls>` (All websites)
 
-To add more sites, edit the `content_scripts.matches` array in `manifest.json`.
+You can manage site permissions in your browser's extension settings.

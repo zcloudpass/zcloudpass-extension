@@ -138,7 +138,7 @@ async function handleMessage(msg) {
         } else {
             vault.entries.push({
                 id: Date.now().toString(),
-                name: name || "AUMS Amrita",
+                name: name || "Unknown Site",
                 username,
                 password,
                 url,

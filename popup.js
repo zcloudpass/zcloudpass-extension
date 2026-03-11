@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div class="empty-state">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1"/></svg>
           <p>No passwords found</p>
-          <span>Login to AUMS to auto-capture or manually add</span>
+          <span>Login to any site to auto-capture or manually add</span>
         </div>
       `;
             return;
