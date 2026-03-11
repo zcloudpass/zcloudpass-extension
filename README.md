@@ -1,8 +1,11 @@
-# 🔐 zCloudPass Browser Extension
+<div align="center">
+  <img src="https://raw.githubusercontent.com/zcloudpass/zcloudpass/main/assets/rounded/logo.png" alt="zCloudPass Logo" width="200"/>
+    <h1>zCloudPass Browser Extension</h1>
+</div>
 
 A Chrome/Edge browser extension for **zCloudPass** — automatically capture and autofill passwords from **any website** into your encrypted zCloudPass vault.
 
-## ✨ Features
+## Features
 
 - **Auto-detect login forms** on all websites
 - **Save credentials** when you log in — a floating banner asks "Save this password?"
@@ -13,7 +16,7 @@ A Chrome/Edge browser extension for **zCloudPass** — automatically capture and
 - **End-to-end encrypted** — uses the same PBKDF2 + AES-GCM encryption as the web app
 - **Works with your existing zCloudPass account** (same backend API)
 
-## 🚀 Installation
+## Installation
 
 ### Load as Unpacked Extension (Development)
 
@@ -28,7 +31,7 @@ A Chrome/Edge browser extension for **zCloudPass** — automatically capture and
 - Click the puzzle piece icon (🧩) in Chrome's toolbar
 - Find **zCloudPass** and click the pin icon 📌
 
-## 🔑 Usage
+## Usage
 
 ### First-Time Setup
 
@@ -64,7 +67,7 @@ A Chrome/Edge browser extension for **zCloudPass** — automatically capture and
 - Fill in the site name, URL, username, and password
 - Click **Save to Vault**
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 zcloudpass-extension/
@@ -78,7 +81,7 @@ zcloudpass-extension/
 └── icons/              # Extension icons (16, 32, 48, 128px)
 ```
 
-## 🔒 Security
+## Security
 
 - **Zero-knowledge encryption**: Your master password never leaves the extension
 - **PBKDF2 key derivation** (100,000 iterations) with AES-256-GCM encryption
@@ -86,21 +89,21 @@ zcloudpass-extension/
 - Session tokens expire after 1 hour
 - No telemetry or analytics
 
-## 🛠️ Development
+## Development
 
 - Edit files directly — no build step needed!
 - After making changes, go to `chrome://extensions/` and click the **refresh** icon on the extension card
 - Open the popup's DevTools: right-click the popup → **Inspect**
 - Content script console logs appear in the **page's DevTools console**
 
-## ✅ CI / Releases
+## CI / Releases
 
 - `npm test` validates the extension manifest, required assets, and JavaScript syntax
 - GitHub Actions `CI` runs on pushes to `main`/`master` and on pull requests
 - GitHub Actions `Release` runs when you push a tag like `v1.1.0`
 - The release workflow verifies the tag matches `manifest.json` and uploads a packaged `.zip` as the GitHub release asset
 
-## 📋 Supported Sites
+## Supported Sites
 
 The content script auto-injects on:
 
