@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "zCloudPass - Password Manager",
   "short_name": "zCloudPass",
-  "version": "1.1.0",
+  "version": "0.0.1",
   "description": "Securely save, autofill, and manage your passwords with end-to-end encryption powered by zCloudPass. Works on any website.",
   "permissions": ["activeTab", "storage", "scripting"],
   "host_permissions": ["<all_urls>"],
